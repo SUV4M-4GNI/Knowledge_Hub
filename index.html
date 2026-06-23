@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Knowledge Hub AI - a free offline SDG 4 education demo website for school students.">
+  <title>Knowledge Hub AI | SDG 4 Quality Education</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-wrap" aria-label="Primary navigation">
+      <a class="brand" href="#home" aria-label="Knowledge Hub AI home">
+        <span class="brand-mark" aria-hidden="true">KH</span>
+        <span>Knowledge Hub AI</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#notes">Notes</a>
+        <a href="#quiz">Quiz</a>
+        <a href="#doubt">Doubt Solver</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Home: project identity, SDG 4 badge, and demo entry points -->
+    <section class="hero section-pad" id="home">
+      <div class="hero-bg-shape shape-one" aria-hidden="true"></div>
+      <div class="hero-bg-shape shape-two" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="sdg-pill">SDG 4 Badge: Quality Education</span>
+          <h1>Knowledge Hub AI</h1>
+          <p class="tagline">Knowledge shows right from wrong.</p>
+          <p class="intro">
+            A zero-cost school project that demonstrates how simple AI-style tools can help students create notes, practice quizzes, and solve doubts without paid APIs, logins, or internet access.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#notes">Try Notes Generator</a>
+            <a class="btn btn-secondary" href="#quiz">Generate Quiz</a>
+            <a class="btn btn-ghost" href="#doubt">Ask a Doubt</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="Student-friendly education illustration">
+          <div class="orbit-card book-card">📘<span>Smart Notes</span></div>
+          <div class="orbit-card quiz-card">🧠<span>Quiz Builder</span></div>
+          <div class="orbit-card chat-card">💬<span>Doubt Help</span></div>
+          <div class="student-figure" aria-hidden="true">
+            <div class="head">🙂</div>
+            <div class="body"></div>
+            <div class="screen">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Notes Generator: local JavaScript creates structured study material -->
+    <section class="section-pad" id="notes">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">AI Notes Generator</span>
+          <h2>Turn any topic into quick study notes</h2>
+          <p>Type a school topic and generate a clean summary, key points, and revision tips. Everything runs locally in your browser.</p>
+        </div>
+        <div class="tool-card two-column">
+          <div class="input-panel">
+            <label for="notesTopic">Topic</label>
+            <textarea id="notesTopic" rows="5" placeholder="Example: Photosynthesis, Fractions, Water Cycle"></textarea>
+            <button class="btn btn-primary full-width" id="generateNotes">Generate Notes</button>
+          </div>
+          <div class="output-panel" id="notesOutput" aria-live="polite">
+            <div class="empty-state">
+              <span aria-hidden="true">📝</span>
+              <p>Your structured notes will appear here.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz Generator: five local MCQ-style questions with answers -->
+    <section class="section-pad tinted" id="quiz">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">AI Quiz Generator</span>
+          <h2>Practice with five MCQ questions</h2>
+          <p>Create a short demo quiz for any topic, view answers, and check explanations with a score-style progress display.</p>
+        </div>
+        <div class="tool-card">
+          <div class="quiz-topbar">
+            <div class="topic-row">
+              <label for="quizTopic">Quiz topic</label>
+              <input id="quizTopic" type="text" placeholder="Example: Solar System">
+            </div>
+            <button class="btn btn-primary" id="generateQuiz">Generate Quiz</button>
+          </div>
+          <div class="score-wrap">
+            <div>
+              <strong id="scoreText">Ready for practice</strong>
+              <span id="scoreHint">Generate a quiz to begin.</span>
+            </div>
+            <div class="progress-track" aria-hidden="true">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+          </div>
+          <div class="quiz-output" id="quizOutput" aria-live="polite">
+            <div class="empty-state">
+              <span aria-hidden="true">✅</span>
+              <p>Quiz questions will appear here.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Doubt Solver: rule-based chat demo with no backend -->
+    <section class="section-pad" id="doubt">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">AI Doubt Solver</span>
+          <h2>Ask a doubt in a chat-style demo</h2>
+          <p>This rule-based assistant gives helpful study guidance and clearly shows how a demo AI helper could work offline.</p>
+        </div>
+        <div class="chat-shell">
+          <div class="chat-notice">Demo AI assistant: responses are generated locally using simple rules.</div>
+          <div class="chat-window" id="chatWindow" aria-live="polite">
+            <div class="message bot">
+              <strong>Knowledge Bot</strong>
+              <p>Hi! Ask me a school doubt. I can explain topics, suggest steps, or help you revise.</p>
+            </div>
+          </div>
+          <form class="chat-form" id="doubtForm">
+            <label class="sr-only" for="doubtInput">Enter your doubt</label>
+            <input id="doubtInput" type="text" placeholder="Type your doubt here...">
+            <button class="btn btn-primary" type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad tinted" id="about">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">About Project</span>
+          <h2>Built for accessible, joyful learning</h2>
+        </div>
+        <div class="about-grid">
+          <article class="info-card">
+            <span aria-hidden="true">🎯</span>
+            <h3>Problem</h3>
+            <p>Many students need quick revision support, but paid tools, complex logins, and internet dependency can make learning unequal.</p>
+          </article>
+          <article class="info-card">
+            <span aria-hidden="true">💡</span>
+            <h3>Solution</h3>
+            <p>Knowledge Hub AI offers notes, quiz practice, and doubt support as a free offline browser demo using only HTML, CSS, and JavaScript.</p>
+          </article>
+          <article class="info-card">
+            <span aria-hidden="true">🚀</span>
+            <h3>Innovation</h3>
+            <p>It simulates AI-style learning assistance with local templates and rules, making the idea easy to demonstrate without API costs.</p>
+          </article>
+          <article class="info-card">
+            <span aria-hidden="true">🌍</span>
+            <h3>Impact</h3>
+            <p>The project supports SDG 4 by promoting inclusive, equitable, and quality education for school students.</p>
+          </article>
+        </div>
+        <div class="target-strip">
+          <strong>Target users:</strong>
+          <span>School students who want simple, friendly, no-cost study support.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <span class="eyebrow">Contact</span>
+          <h2>Share feedback or project questions</h2>
+          <p class="contact-copy">This form is for demonstration only. It does not send data to a server, so the website stays private and offline-friendly.</p>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="Your name" required>
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="student@example.com" required>
+          <label for="message">Message</label>
+          <textarea id="message" rows="5" placeholder="Write your message..." required></textarea>
+          <button class="btn btn-primary full-width" type="submit">Submit</button>
+          <p class="form-status" id="formStatus" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Knowledge Hub AI · SDG 4 Quality Education</p>
+      <p>Free static website · No APIs · Works offline</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
